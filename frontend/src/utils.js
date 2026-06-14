@@ -148,7 +148,10 @@ export async function callGemini(systemPrompt, userMessage, onChunk) {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }], generationConfig: { temperature: 0.1, maxOutputTokens: 4000 } }),
     });
-    if (!res.ok) throw new Error(`Gemini API error ${res.status}`);
+    if (!res.ok) {
+      if (res.status === 429) throw new Error("AI Rate Limit Exceeded (Free Tier limits you to 15 requests/minute). Please wait 60 seconds and try again.");
+      throw new Error(`Gemini API error ${res.status}`);
+    }
     const data = await res.json(); return data.candidates?.[0]?.content?.parts?.[0]?.text || "";
   }
 }
