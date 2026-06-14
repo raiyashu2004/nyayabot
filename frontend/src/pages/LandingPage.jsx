@@ -6,24 +6,24 @@ import {
 } from "lucide-react";
 
 const FEATURES = [
-  { icon: MessageSquare, title: "AI Legal Chat", desc: "Ask complex legal questions and get cited answers from Constitution, statutes, and Supreme Court judgments.", color: "#3B82F6", bg: "rgba(59,130,246,0.1)" },
-  { icon: FileSearch, title: "Document Analyzer", desc: "Upload contracts, FIRs, or agreements — get instant risk flags, clause analysis, and applicable laws.", color: "#8B5CF6", bg: "rgba(139,92,246,0.1)" },
-  { icon: Search, title: "Case Finder", desc: "Find relevant Supreme Court and High Court precedents for your legal matter with AI-powered search.", color: "#10B981", bg: "rgba(16,185,129,0.1)" },
-  { icon: PenTool, title: "Draft Generator", desc: "Generate bail applications, writ petitions, legal notices, and more with proper legal formatting.", color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
-  { icon: Shield, title: "Anti-Hallucination", desc: "Every answer is backed by real citations. If we're unsure, we tell you — no fabricated case law.", color: "#EF4444", bg: "rgba(239,68,68,0.1)" },
-  { icon: BookOpen, title: "Comprehensive Database", desc: "448 Constitutional articles, 50,000+ SC judgments, 200+ central statutes, and 25 High Courts covered.", color: "#0EA5E9", bg: "rgba(14,165,233,0.1)" },
+  { icon: MessageSquare, title: "Smart Legal Research", desc: "Stop scrolling through endless search results. Get direct, plain-English answers backed strictly by Indian case law and bare acts.", color: "#3B82F6", bg: "rgba(59,130,246,0.1)" },
+  { icon: FileSearch, title: "Contract Risk Analysis", desc: "Upload a lease or employment agreement. We'll instantly flag one-sided clauses and missing protections before your client signs.", color: "#8B5CF6", bg: "rgba(139,92,246,0.1)" },
+  { icon: Search, title: "Precedent Search", desc: "Finding the right ratio decidendi is hard. Just describe your case facts, and we'll pull up the most relevant Supreme Court judgments.", color: "#10B981", bg: "rgba(16,185,129,0.1)" },
+  { icon: PenTool, title: "Drafting Assistant", desc: "Drafting an anticipatory bail application? Let us handle the standard formatting and citations so you can focus on the arguments.", color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
+  { icon: Shield, title: "Verified Citations Only", desc: "We know fake citations can ruin a case. If we don't have a verified source for a legal claim, we simply won't give it to you.", color: "#EF4444", bg: "rgba(239,68,68,0.1)" },
+  { icon: BookOpen, title: "Built on Bare Acts", desc: "Trained exclusively on the Indian Constitution, major penal codes (IPC/BNS), civil codes, and decades of high court rulings.", color: "#0EA5E9", bg: "rgba(14,165,233,0.1)" },
 ];
 
 const STEPS = [
-  { num: "01", title: "Upload or Ask", desc: "Upload a legal document for analysis or type your legal question in natural language." },
-  { num: "02", title: "AI Analyzes", desc: "NyayaBot scans against Indian law databases, identifies issues, and finds relevant precedents." },
-  { num: "03", title: "Get Insights", desc: "Receive cited answers, risk assessments, applicable laws, and actionable recommendations." },
+  { num: "01", title: "Bring your problem", desc: "Upload a messy contract for review, or just type out the facts of a property dispute you're currently handling." },
+  { num: "02", title: "We hit the books", desc: "NyayaBot scans through thousands of Indian statutes and precedents in seconds to find what actually applies to your facts." },
+  { num: "03", title: "Build your case", desc: "Get actionable insights, highlighted risk clauses, and exactly formatted citations to drop straight into your petition." },
 ];
 
 const TESTIMONIALS = [
-  { name: "Adv. Priya Sharma", role: "Senior Advocate, Delhi High Court", text: "NyayaBot has transformed how I prepare for cases. The document analyzer caught risk flags in a contract that I would have spent hours reviewing manually.", rating: 5 },
-  { name: "Adv. Rajesh Iyer", role: "Corporate Lawyer, Mumbai", text: "The case finder is incredibly accurate. It found directly applicable SC judgments for my client's property dispute within seconds. An invaluable tool.", rating: 5 },
-  { name: "Adv. Meera Patel", role: "Criminal Law Practitioner, Gujarat", text: "As a criminal lawyer, the draft generator saves me hours on bail applications. The legal formatting is precise and the citations are always verified.", rating: 5 },
+  { name: "Adv. Priya Sharma", role: "Delhi High Court", text: "Manually reviewing a 50-page commercial lease used to eat up my entire weekend. Now I just run it through the analyzer to catch the worst clauses, giving me a massive head start.", rating: 5 },
+  { name: "Rajesh Iyer", role: "Corporate Counsel, Mumbai", text: "Finding the exact legal precedent for an obscure property dispute is usually a nightmare. This actually understands the context of what I'm looking for and pulls up directly applicable SC judgments.", rating: 5 },
+  { name: "Adv. Meera Patel", role: "Criminal Defense, Gujarat", text: "I was extremely skeptical about an AI making up fake cases. But the fact that it strictly limits itself to verified bare acts is a huge relief. It saves me hours on initial bail drafts.", rating: 5 },
 ];
 
 const STATS = [
