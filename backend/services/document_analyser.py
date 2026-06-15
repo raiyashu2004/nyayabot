@@ -11,8 +11,6 @@ Capabilities:
 """
 
 import fitz  # PyMuPDF
-import pytesseract
-from PIL import Image
 from docx import Document as DocxDocument
 from typing import Optional
 from dataclasses import dataclass
@@ -186,7 +184,7 @@ class DocumentAnalyser:
         elif ext in ("txt",):
             return file_bytes.decode("utf-8", errors="ignore")
         elif ext in ("png", "jpg", "jpeg", "tiff"):
-            return self._ocr_image(file_bytes)
+            raise ValueError("Image OCR is not supported on this server. Please upload a text-based PDF or DOCX.")
         else:
             raise ValueError(f"Unsupported file format: .{ext}")
 
@@ -200,21 +198,14 @@ class DocumentAnalyser:
             if text.strip():
                 text_pages.append(text)
             else:
-                # Scanned page — use OCR
-                pix = page.get_pixmap(dpi=200)
-                img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
-                ocr_text = pytesseract.image_to_string(img, lang="eng+hin")
-                text_pages.append(ocr_text)
+                # Scanned page
+                text_pages.append("\n[Scanned image page skipped. OCR not supported on this server.]\n")
 
         return "\n\n".join(text_pages)
 
     def _extract_docx(self, file_bytes: bytes) -> str:
         doc = DocxDocument(BytesIO(file_bytes))
         return "\n".join(p.text for p in doc.paragraphs if p.text.strip())
-
-    def _ocr_image(self, file_bytes: bytes) -> str:
-        img = Image.open(BytesIO(file_bytes))
-        return pytesseract.image_to_string(img, lang="eng+hin")
 
     # ─── Document type detection ─────────
 
