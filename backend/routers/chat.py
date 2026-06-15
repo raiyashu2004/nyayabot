@@ -60,9 +60,39 @@ async def generic_stream(req: GenericChatRequest):
     
     async def generate():
         async for chunk in llm.astream(messages):
-            yield f"data: {chunk.content}\n\n"
+            # Format newlines properly for SSE so we don't break the client parser
+            chunk_text = chunk.content.replace('\n', '\\n')
+            yield f"data: {chunk_text}\n\n"
             
     return StreamingResponse(generate(), media_type="text/event-stream")
+
+@router.post("/generic")
+async def generic_call(req: GenericChatRequest):
+    """
+    Non-streaming LangChain proxy for the frontend. 
+    Useful for document analysis and research feeds which expect bulk JSON.
+    """
+    from langchain_google_genai import ChatGoogleGenerativeAI
+    from langchain_core.messages import SystemMessage, HumanMessage
+    import os
+    
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise HTTPException(500, "GEMINI_API_KEY is missing on the server.")
+        
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash-latest",
+        google_api_key=api_key,
+        temperature=0.1
+    )
+    
+    messages = [
+        SystemMessage(content=req.system_prompt),
+        HumanMessage(content=req.user_message)
+    ]
+    
+    response = await llm.ainvoke(messages)
+    return {"text": response.content}
 
 @router.post("/ask", response_model=ChatResponse)
 async def ask(req: ChatRequest, user=Depends(get_current_user)):

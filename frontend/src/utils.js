@@ -149,7 +149,9 @@ export async function callGemini(systemPrompt, userMessage, onChunk) {
       const chunkStr = dec.decode(value);
       for (const line of chunkStr.split("\n")) {
         if (line.startsWith("data: ")) {
-          full += line.substring(6);
+          // Decode the explicitly escaped newlines from the backend
+          const textChunk = line.substring(6).replace(/\\n/g, "\n");
+          full += textChunk;
           onChunk(full);
         }
       }
@@ -157,14 +159,14 @@ export async function callGemini(systemPrompt, userMessage, onChunk) {
     return full;
   } else {
     // Non-streaming fallback
-    const res = await fetch(`${BACKEND_URL}/api/chat/generic-stream`, {
+    const res = await fetch(`${BACKEND_URL}/api/chat/generic`, {
       method: "POST", 
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ system_prompt: systemPrompt, user_message: userMessage }),
     });
     if (!res.ok) throw new Error(`Backend API error ${res.status}`);
-    const text = await res.text();
-    return text.split("\n").filter(l => l.startsWith("data: ")).map(l => l.substring(6)).join("");
+    const data = await res.json();
+    return data.text || "";
   }
 }
 export function extractCitations(text) {
