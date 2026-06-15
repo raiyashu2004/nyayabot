@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 
 const PAGE_TITLES = {
   dashboard: { title: "Dashboard", subtitle: null },
-  chat: { title: "Chat with NyayaBot", subtitle: "AI Legal Research Assistant" },
+  chat: { title: "Chat with JurisAI", subtitle: "AI Legal Research Assistant" },
   doc: { title: "Document Analysis", subtitle: null },
   research: { title: "Legal Research", subtitle: "Search Indian law databases" },
   cases: { title: "Case Finder", subtitle: "Find relevant precedents" },

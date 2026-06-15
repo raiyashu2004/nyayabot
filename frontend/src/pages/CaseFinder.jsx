@@ -46,7 +46,7 @@ export default function CaseFinder() {
       {/* Info Card */}
       <div className="card" style={{ padding: "16px 20px" }}>
         <p style={{ fontSize: 13.5, color: "#64748B", margin: 0, lineHeight: 1.6 }}>
-          Describe your case facts in detail. NyayaBot will identify applicable legal principles and retrieve relevant precedents from Indian courts.
+          Describe your case facts in detail. JurisAI will identify applicable legal principles and retrieve relevant precedents from Indian courts.
         </p>
       </div>
 

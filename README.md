@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/scale.svg" width="80" height="80" alt="NyayaBot Logo" />
-  <h1>NyayaBot — Indian Legal AI Assistant</h1>
+  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/scale.svg" width="80" height="80" alt="JurisAI Logo" />
+  <h1>JurisAI — Indian Legal AI Assistant</h1>
   <p>An AI-powered legal research and drafting platform built for Indian advocates and law students. Powered by Google Gemini and FastAPI.</p>
 
   <a href="#features">Features</a> •
@@ -13,9 +13,9 @@
 
 ## ⚖️ Overview
 
-NyayaBot is a modern legal tech application designed to solve the biggest pain points in Indian legal practice: endless precedent searching, manual contract review, and formatting standard drafts. 
+JurisAI is a modern legal tech application designed to solve the biggest pain points in Indian legal practice: endless precedent searching, manual contract review, and formatting standard drafts. 
 
-Unlike generic AI chat tools, NyayaBot strictly operates within the boundaries of Indian law (Constitution, IPC/BNS, CrPC, etc.) and utilizes **LangChain** conversational memory to provide deep, contextual legal analysis.
+Unlike generic AI chat tools, JurisAI strictly operates within the boundaries of Indian law (Constitution, IPC/BNS, CrPC, etc.) and utilizes **LangChain** conversational memory to provide deep, contextual legal analysis.
 
 ## ✨ Features
 
@@ -82,7 +82,7 @@ This application utilizes a decoupled architecture to ensure smooth AI streaming
 - The **Backend** is a FastAPI service that acts as a secure LangChain proxy, managing the heavy lifting of AI orchestration, context injection, and API key security. It is currently configured to run seamlessly on a free-tier hosting plan (Render) without requiring a provisioned PostgreSQL database.
 
 ## 📜 Disclaimer
-NyayaBot is an AI assistant intended for research and drafting assistance. It is **not a substitute for qualified legal counsel**. Always verify citations and legal advice with an advocate enrolled with the Bar Council of India before submitting documents to a court of law.
+JurisAI is an AI assistant intended for research and drafting assistance. It is **not a substitute for qualified legal counsel**. Always verify citations and legal advice with an advocate enrolled with the Bar Council of India before submitting documents to a court of law.
 
 ---
 *Built with ❤️ for the Indian Legal Community.*

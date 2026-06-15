@@ -16,7 +16,7 @@ const FEATURES = [
 
 const STEPS = [
   { num: "01", title: "Bring your problem", desc: "Upload a messy contract for review, or just type out the facts of a property dispute you're currently handling." },
-  { num: "02", title: "We hit the books", desc: "NyayaBot scans through thousands of Indian statutes and precedents in seconds to find what actually applies to your facts." },
+  { num: "02", title: "We hit the books", desc: "JurisAI scans through thousands of Indian statutes and precedents in seconds to find what actually applies to your facts." },
   { num: "03", title: "Build your case", desc: "Get actionable insights, highlighted risk clauses, and exactly formatted citations to drop straight into your petition." },
 ];
 
@@ -44,7 +44,7 @@ export default function LandingPage({ onNavigate }) {
               <Scale size={20} color="#FFFFFF" />
             </div>
             <div>
-              <span className="landing-nav-name">NyayaBot</span>
+              <span className="landing-nav-name">JurisAI</span>
               <span className="landing-nav-tag">AI Legal Assistant</span>
             </div>
           </div>
@@ -178,7 +178,7 @@ export default function LandingPage({ onNavigate }) {
           <div className="landing-section-header">
             <span className="landing-section-badge">Testimonials</span>
             <h2 className="landing-section-title">Trusted by Legal Professionals</h2>
-            <p className="landing-section-subtitle">See what advocates across India are saying about NyayaBot</p>
+            <p className="landing-section-subtitle">See what advocates across India are saying about JurisAI</p>
           </div>
           <div className="landing-testimonials-grid">
             {TESTIMONIALS.map((t, i) => (
@@ -210,7 +210,7 @@ export default function LandingPage({ onNavigate }) {
             <div className="landing-hero-orb orb-2" />
           </div>
           <h2>Start Your Legal Research Today</h2>
-          <p>Join 5,000+ legal professionals who trust NyayaBot for accurate, cited legal research.</p>
+          <p>Join 5,000+ legal professionals who trust JurisAI for accurate, cited legal research.</p>
           <button className="landing-btn-primary large white" onClick={() => onNavigate("register")}>
             Create Free Account
             <ArrowRight size={18} />
@@ -226,7 +226,7 @@ export default function LandingPage({ onNavigate }) {
               <div className="landing-nav-logo">
                 <Scale size={18} color="#FFFFFF" />
               </div>
-              <span className="landing-nav-name">NyayaBot</span>
+              <span className="landing-nav-name">JurisAI</span>
             </div>
             <p>AI-powered legal research assistant for Indian law. Providing verified, cited legal information to advocates, law students, and citizens.</p>
           </div>
@@ -252,7 +252,7 @@ export default function LandingPage({ onNavigate }) {
           </div>
         </div>
         <div className="landing-footer-bottom">
-          <p>© 2025 NyayaBot. All rights reserved. Not a substitute for qualified legal advice.</p>
+          <p>© 2025 JurisAI. All rights reserved. Not a substitute for qualified legal advice.</p>
         </div>
       </footer>
     </div>

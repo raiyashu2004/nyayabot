@@ -9,7 +9,7 @@ const STATS = [
 ];
 
 const ACTIONS = [
-  { id: "chat", icon: MessageSquare, label: "Chat with NyayaBot", desc: "Ask questions about Indian law with cited answers from Constitution and case law.", color: "#3B82F6", bg: "rgba(59,130,246,0.08)" },
+  { id: "chat", icon: MessageSquare, label: "Chat with JurisAI", desc: "Ask questions about Indian law with cited answers from Constitution and case law.", color: "#3B82F6", bg: "rgba(59,130,246,0.08)" },
   { id: "doc", icon: FileSearch, label: "Document Analyzer", desc: "Upload contracts, FIRs, or agreements — get risk flags, clause analysis, and relevant laws.", color: "#8B5CF6", bg: "rgba(139,92,246,0.08)" },
   { id: "cases", icon: Search, label: "Case Finder", desc: "Find past Supreme Court and High Court judgments relevant to your legal matter.", color: "#10B981", bg: "rgba(16,185,129,0.08)" },
   { id: "draft", icon: PenTool, label: "Draft Generator", desc: "AI-assisted drafting of bail applications, writ petitions, legal notices, and more.", color: "#F59E0B", bg: "rgba(245,158,11,0.08)" },

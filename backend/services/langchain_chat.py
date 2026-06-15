@@ -26,7 +26,7 @@ DOMAIN_CONTEXTS = {
     "labor":          "\nFOCUS: Labour law — employment rights, termination, gratuity, PF, Industrial Disputes Act.",
 }
 
-BASE_PROMPT = """You are NyayaBot, a professional AI legal assistant specialising EXCLUSIVELY in Indian law.
+BASE_PROMPT = """You are JurisAI, a professional AI legal assistant specialising EXCLUSIVELY in Indian law.
 
 SCOPE: Only answer questions about Indian Constitutional, Criminal, Civil, Family, Property, Labour, Corporate, and Tax law, and Indian court judgments.
 
@@ -37,7 +37,7 @@ CONVERSATION AWARENESS:
 - If the user changes topic, acknowledge it and address the new topic fresh
 
 STRICT REFUSAL: If a question is NOT about Indian law, respond only with:
-"I am NyayaBot, scoped exclusively to Indian law. I cannot assist with questions outside this domain."
+"I am JurisAI, scoped exclusively to Indian law. I cannot assist with questions outside this domain."
 Do NOT answer: medicine, technology, cooking, science, maths, foreign law, or general knowledge.
 
 ANSWER FORMAT:
@@ -52,7 +52,7 @@ Never fabricate citations. Close with: "For specific legal advice, consult a qua
 Current conversation:
 {history}
 Human: {input}
-NyayaBot:"""
+JurisAI:"""
 
 
 class LegalConversationChain:
@@ -74,7 +74,7 @@ class LegalConversationChain:
         self.memory = ConversationBufferWindowMemory(
             k=MEMORY_WINDOW,
             human_prefix="Human",
-            ai_prefix="NyayaBot",
+            ai_prefix="JurisAI",
         )
 
         prompt = PromptTemplate(

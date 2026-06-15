@@ -1,4 +1,4 @@
-# NyayaBot — Deployment Guide
+# JurisAI — Deployment Guide
 
 ## Option A: Docker Compose (Recommended for production)
 

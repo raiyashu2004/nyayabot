@@ -67,7 +67,7 @@ DOCUMENT_TYPES = {
     "partnership_deed": ["partnership", "partners", "profit sharing", "capital contribution"],
 }
 
-ANALYSIS_SYSTEM_PROMPT = """You are NyayaBot, an expert Indian legal document analyser.
+ANALYSIS_SYSTEM_PROMPT = """You are JurisAI, an expert Indian legal document analyser.
 
 Analyse the provided legal document with precision. Your output must be a valid JSON object with this structure:
 {

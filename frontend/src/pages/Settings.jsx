@@ -91,7 +91,7 @@ export default function Settings() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 0", borderBottom: "1px solid #F1F5F9" }}>
                 <div>
                   <h4 style={{ margin: "0 0 4px", fontSize: 15 }}>Detailed AI Analysis</h4>
-                  <p style={{ margin: 0, fontSize: 13, color: "#64748B" }}>NyayaBot will generate longer, more comprehensive responses.</p>
+                  <p style={{ margin: 0, fontSize: 13, color: "#64748B" }}>JurisAI will generate longer, more comprehensive responses.</p>
                 </div>
                 <input type="checkbox" checked={detailedAi} onChange={e => setDetailedAi(e.target.checked)} style={{ width: 18, height: 18, accentColor: "#D4AF37" }} />
               </div>
@@ -128,7 +128,7 @@ export default function Settings() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
                   <div>
                     <span style={{ background: "#1A1A1A", color: "#FFF", padding: "4px 10px", borderRadius: 20, fontSize: 12, fontWeight: 700, textTransform: "uppercase" }}>Current Plan</span>
-                    <h4 style={{ fontSize: 20, margin: "12px 0 4px" }}>NyayaBot Starter</h4>
+                    <h4 style={{ fontSize: 20, margin: "12px 0 4px" }}>JurisAI Starter</h4>
                     <p style={{ margin: 0, fontSize: 14, color: "#64748B" }}>Basic AI functionality with limited query quota.</p>
                   </div>
                   <div style={{ textAlign: "right" }}>
@@ -144,7 +144,7 @@ export default function Settings() {
 
               <div style={{ border: "1px solid rgba(212,175,55,0.3)", borderRadius: 12, padding: 24, background: "rgba(212,175,55,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
-                  <h4 style={{ margin: "0 0 8px", fontSize: 16, color: "#AA8529" }}>NyayaBot Professional</h4>
+                  <h4 style={{ margin: "0 0 8px", fontSize: 16, color: "#AA8529" }}>JurisAI Professional</h4>
                   <p style={{ margin: 0, fontSize: 14, color: "#64748B", maxWidth: 300 }}>Unlock unlimited AI queries, custom case drafting, and premium API access.</p>
                 </div>
                 <button style={{ background: "#D4AF37", color: "#FFF", border: "none", padding: "12px 24px", borderRadius: 8, fontWeight: 600, cursor: "not-allowed", opacity: 0.8 }}>

@@ -36,7 +36,7 @@ export default function LoginPage({ onNavigate }) {
             <div className="landing-nav-logo">
               <Scale size={20} color="#FFFFFF" />
             </div>
-            <span className="auth-logo-text">NyayaBot</span>
+            <span className="auth-logo-text">JurisAI</span>
           </div>
 
           <h1 className="auth-title">Welcome back</h1>

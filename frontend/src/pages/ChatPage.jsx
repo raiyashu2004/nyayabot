@@ -22,7 +22,7 @@ function CitationPill({ label, type }) {
 
 const defaultMsgs = [{
   role: "ai",
-  text: "Namaskar. I am NyayaBot — your professional AI legal assistant for Indian law.\n\nI provide research assistance on Constitutional, Criminal, Civil, Family, Property, and Labour law with precise citations from the Constitution and Supreme Court and High Court judgments.\n\nPlease state your legal query below.",
+  text: "Namaskar. I am JurisAI — your professional AI legal assistant for Indian law.\n\nI provide research assistance on Constitutional, Criminal, Civil, Family, Property, and Labour law with precise citations from the Constitution and Supreme Court and High Court judgments.\n\nPlease state your legal query below.",
   done: true
 }];
 

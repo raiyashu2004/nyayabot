@@ -1,5 +1,5 @@
 """
-NyayaBot — Indian Legal AI
+JurisAI — Indian Legal AI
 FastAPI Application Entrypoint
 """
 
@@ -16,7 +16,7 @@ from utils.database import init_db
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Initialize services on startup."""
-    print("🏛️  NyayaBot starting up...")
+    print("🏛️  JurisAI starting up...")
     try:
         await init_db()
         print("✅  Database connected")
@@ -29,13 +29,13 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         print(f"⚠️  Embedding model failed: {e}")
         
-    print("🚀  NyayaBot ready")
+    print("🚀  JurisAI ready")
     yield
-    print("👋  NyayaBot shutting down")
+    print("👋  JurisAI shutting down")
 
 
 app = FastAPI(
-    title="NyayaBot API",
+    title="JurisAI API",
     description="Indian Legal AI — RAG-powered assistant for Indian law",
     version="1.0.0",
     lifespan=lifespan,
@@ -62,11 +62,11 @@ app.include_router(cases.router,     prefix="/api/cases",     tags=["Case Finder
 @app.get("/")
 async def root():
     return {
-        "status": "NyayaBot Backend is Live",
+        "status": "JurisAI Backend is Live",
         "message": "The API is running successfully. Please use the frontend React app to interact with the bot.",
         "docs": "/docs"
     }
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "service": "NyayaBot API"}
+    return {"status": "ok", "service": "JurisAI API"}

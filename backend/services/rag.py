@@ -1,5 +1,5 @@
 """
-RAG Pipeline — Core of NyayaBot's anti-hallucination system.
+RAG Pipeline — Core of JurisAI's anti-hallucination system.
 
 How it works:
 1. Embed the user query
@@ -37,7 +37,7 @@ class RAGResponse:
     fallback: bool          # True if below confidence threshold
 
 
-SYSTEM_PROMPT = """You are NyayaBot, an AI legal assistant specializing in Indian law.
+SYSTEM_PROMPT = """You are JurisAI, an AI legal assistant specializing in Indian law.
 
 STRICT RULES:
 1. Answer ONLY from the provided CONTEXT sections below. Never use your own knowledge or training data for legal facts.

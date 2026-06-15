@@ -103,11 +103,11 @@ export default function RegisterPage({ onNavigate }) {
             <div className="landing-nav-logo">
               <Scale size={20} color="#FFFFFF" />
             </div>
-            <span className="auth-logo-text">NyayaBot</span>
+            <span className="auth-logo-text">JurisAI</span>
           </div>
 
           <h1 className="auth-title">Create your account</h1>
-          <p className="auth-subtitle">Join thousands of legal professionals using NyayaBot</p>
+          <p className="auth-subtitle">Join thousands of legal professionals using JurisAI</p>
 
           {error && (
             <div className="auth-error">

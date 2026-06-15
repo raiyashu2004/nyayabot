@@ -5,7 +5,7 @@ import {
 
 const NAV_ITEMS = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { id: "chat", label: "Chat with NyayaBot", icon: MessageSquare },
+  { id: "chat", label: "Chat with JurisAI", icon: MessageSquare },
   { id: "doc", label: "Document Analyzer", icon: FileSearch },
   { id: "research", label: "Legal Research", icon: Scale },
   { id: "cases", label: "Case Finder", icon: Search },
@@ -25,7 +25,7 @@ export default function Sidebar({ activePage, onNavigate }) {
           <Scale size={20} color="#FFFFFF" />
         </div>
         <div className="sidebar-logo-text">
-          <h2>NyayaBot</h2>
+          <h2>JurisAI</h2>
           <p>AI Legal Assistant</p>
         </div>
       </div>
@@ -51,7 +51,7 @@ export default function Sidebar({ activePage, onNavigate }) {
 
       {/* Footer */}
       <div className="sidebar-footer">
-        <p>© 2025 NyayaBot</p>
+        <p>© 2025 JurisAI</p>
         <p>All rights reserved.</p>
       </div>
     </aside>
