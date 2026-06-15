@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Scale, Send } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import { callGemini, extractCitations, LEGAL_SYSTEM, QUICK_QS, DOMAINS } from "../utils";
 
 function LoadingDots() {
@@ -76,7 +77,10 @@ export default function ChatPage() {
             </div>
             <div style={{ maxWidth: "82%" }}>
               <div className="chat-bubble">
-                {m.text || (m.role === "ai" && !m.done ? <LoadingDots /> : "")}
+                {m.role === "ai" && !m.done && !m.text ? <LoadingDots /> : 
+                 m.role === "user" ? m.text : 
+                 <ReactMarkdown className="markdown-content chat-markdown">{m.text}</ReactMarkdown>
+                }
               </div>
               {m.role === "ai" && m.done && m.text && (
                 <div className="chat-citations">

@@ -860,6 +860,14 @@ body {
   border: 1px solid #E2E8F0;
 }
 
+.chat-markdown p:first-child {
+  margin-top: 0;
+}
+
+.chat-markdown p:last-child {
+  margin-bottom: 0;
+}
+
 .chat-msg.user .chat-bubble {
   border-radius: 18px 4px 18px 18px;
   background: linear-gradient(135deg, #D4AF37, #AA8529);
