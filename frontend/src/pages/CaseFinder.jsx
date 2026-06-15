@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Search, AlertCircle, Scale, Lightbulb } from "lucide-react";
+import { Search, AlertCircle, Scale, Lightbulb, X, Sparkles } from "lucide-react";
 import { callGemini, extractJSON, CASE_PROMPT } from "../utils";
+import ReactMarkdown from "react-markdown";
 
 function LoadingDots() {
   return <span className="loading-dots"><span /><span /><span /></span>;
@@ -11,6 +12,11 @@ export default function CaseFinder() {
   const [res, setRes] = useState(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
+
+  // Modal State for AI Case Brief
+  const [activeCase, setActiveCase] = useState(null);
+  const [caseBrief, setCaseBrief] = useState("");
+  const [briefLoading, setBriefLoading] = useState(false);
 
   const search = async () => {
     if (!q.trim() || busy) return;
@@ -33,6 +39,28 @@ export default function CaseFinder() {
       setErr("API Error: " + e.message);
     }
     setBusy(false);
+  };
+
+  const handleReadBrief = async (c) => {
+    setActiveCase(c);
+    setBriefLoading(true);
+    setCaseBrief("");
+    try {
+      const prompt = `You are a Senior Indian Advocate. Provide a comprehensive, structured case brief for the Indian case: ${c.name} (${c.citation || 'Citation unknown'}). 
+      Format in Markdown with the following headers:
+      ## 1. Facts of the Case
+      ## 2. Primary Legal Issues
+      ## 3. Ratio Decidendi (The Rule of Law)
+      ## 4. Final Judgment
+      
+      If you do not know the case or are not confident, state clearly that you cannot provide a reliable brief instead of hallucinating.`;
+      
+      const response = await callGemini(prompt, "");
+      setCaseBrief(response);
+    } catch (e) {
+      setCaseBrief("Failed to generate case brief: " + e.message);
+    }
+    setBriefLoading(false);
   };
 
   return (
@@ -141,6 +169,13 @@ export default function CaseFinder() {
               </div>
 
               <div style={{ display: "flex", gap: 10, marginTop: 14, paddingTop: 14, borderTop: "1px solid #F1F5F9" }}>
+                <button 
+                  onClick={() => handleReadBrief(c)}
+                  className="btn-primary"
+                  style={{ flex: 1, justifyContent: "center", fontSize: 13, padding: "8px 0", cursor: "pointer" }}
+                >
+                  <Sparkles size={14} color="#FFF" /> AI Case Brief
+                </button>
                 <a 
                   href={`https://indiankanoon.org/search/?formInput=${encodeURIComponent(c.name)}`} 
                   target="_blank" 
@@ -148,16 +183,7 @@ export default function CaseFinder() {
                   className="btn-ghost"
                   style={{ flex: 1, justifyContent: "center", fontSize: 13, padding: "8px 0", textDecoration: "none" }}
                 >
-                  <Scale size={14} /> Read Judgment
-                </a>
-                <a 
-                  href={`https://www.google.com/search?q=${encodeURIComponent(c.name + " " + (c.citation || "") + " supreme court news")}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn-ghost"
-                  style={{ flex: 1, justifyContent: "center", fontSize: 13, padding: "8px 0", textDecoration: "none" }}
-                >
-                  <Search size={14} /> News Reports
+                  <Scale size={14} /> Read Full Text
                 </a>
               </div>
             </div>
@@ -175,6 +201,38 @@ export default function CaseFinder() {
               <p style={{ fontSize: 13.5, color: "#92400E", margin: 0, lineHeight: 1.65 }}>{res.strategy_note}</p>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Case Brief Modal */}
+      {activeCase && (
+        <div className="article-modal-overlay" onClick={() => setActiveCase(null)}>
+          <div className="article-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="article-modal-close" onClick={() => setActiveCase(null)}>
+              <X size={20} />
+            </button>
+            <div className="article-modal-header">
+              <h2>{activeCase.name}</h2>
+              <p className="article-modal-meta">
+                <Scale size={14} /> {activeCase.citation || "Citation"}
+                <span style={{ margin: "0 8px", color: "#CBD5E1" }}>|</span>
+                <Sparkles size={14} color="#D4AF37" /> AI Generated Brief
+              </p>
+            </div>
+            
+            <div className="article-modal-body">
+              {briefLoading ? (
+                <div className="article-loading">
+                  <div className="spinner"></div>
+                  <p>Generating detailed case brief...</p>
+                </div>
+              ) : (
+                <ReactMarkdown className="markdown-content">
+                  {caseBrief}
+                </ReactMarkdown>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>
