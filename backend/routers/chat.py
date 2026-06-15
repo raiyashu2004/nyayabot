@@ -47,7 +47,7 @@ async def generic_stream(req: GenericChatRequest):
         raise HTTPException(500, "GEMINI_API_KEY is missing on the server.")
         
     llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash-latest",
+        model="gemini-2.0-flash",
         google_api_key=api_key,
         temperature=0.1,
         streaming=True
@@ -81,7 +81,7 @@ async def generic_call(req: GenericChatRequest):
         raise HTTPException(500, "GEMINI_API_KEY is missing on the server.")
         
     llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash-latest",
+        model="gemini-2.0-flash",
         google_api_key=api_key,
         temperature=0.1
     )
