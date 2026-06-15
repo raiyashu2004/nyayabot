@@ -139,6 +139,27 @@ export default function CaseFinder() {
                 <div className="case-section-label" style={{ color: "rgba(16,185,129,0.7)" }}>Relevance to your matter</div>
                 <div className="case-section-text" style={{ color: "#065F46" }}>{c.relevance}</div>
               </div>
+
+              <div style={{ display: "flex", gap: 10, marginTop: 14, paddingTop: 14, borderTop: "1px solid #F1F5F9" }}>
+                <a 
+                  href={`https://indiankanoon.org/search/?formInput=${encodeURIComponent(c.name)}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                  style={{ flex: 1, justifyContent: "center", fontSize: 13, padding: "8px 0", textDecoration: "none" }}
+                >
+                  <Scale size={14} /> Read Judgment
+                </a>
+                <a 
+                  href={`https://www.google.com/search?q=${encodeURIComponent(c.name + " " + (c.citation || "") + " supreme court news")}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                  style={{ flex: 1, justifyContent: "center", fontSize: 13, padding: "8px 0", textDecoration: "none" }}
+                >
+                  <Search size={14} /> News Reports
+                </a>
+              </div>
             </div>
           ))}
 
