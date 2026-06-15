@@ -28,10 +28,10 @@ export default function Settings() {
         <p style={{ color: "#64748B", margin: 0 }}>Manage your account, billing, and application preferences.</p>
       </div>
 
-      <div style={{ display: "flex", gap: 32, alignItems: "flex-start" }}>
+      <div className="settings-layout">
         
         {/* Settings Sidebar */}
-        <div style={{ width: 240, display: "flex", flexDirection: "column", gap: 8 }}>
+        <div className="settings-sidebar">
           <button onClick={() => setActiveTab("profile")} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: activeTab === "profile" ? "#F1F5F9" : "transparent", color: activeTab === "profile" ? "#1E293B" : "#64748B", border: "none", borderRadius: 8, fontWeight: 600, fontSize: 14, cursor: "pointer", textAlign: "left", transition: "all 0.2s" }}>
             <User size={18} /> Profile & Account
           </button>
@@ -47,12 +47,12 @@ export default function Settings() {
         </div>
 
         {/* Settings Content */}
-        <div style={{ flex: 1, background: "#FFFFFF", borderRadius: 12, border: "1px solid #E2E8F0", padding: 32 }}>
+        <div className="settings-content" style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E2E8F0", padding: 32 }}>
           
           {activeTab === "profile" && (
             <form onSubmit={handleSave}>
               <h3 style={{ fontSize: 18, fontWeight: 700, margin: "0 0 24px" }}>Profile Information</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 24 }}>
+              <div className="settings-profile-grid" style={{ gap: 20, marginBottom: 24 }}>
                 <div>
                   <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#475569", marginBottom: 8 }}>Full Name</label>
                   <input type="text" value={name} onChange={e => setName(e.target.value)} style={{ width: "100%", padding: "10px 14px", borderRadius: 8, border: "1px solid #CBD5E1", fontSize: 14 }} />
@@ -125,13 +125,13 @@ export default function Settings() {
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, margin: "0 0 24px" }}>Billing & Plan</h3>
               <div style={{ border: "1px solid #E2E8F0", borderRadius: 12, padding: 24, background: "#F8FAFC", marginBottom: 24 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+                <div className="billing-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
                   <div>
                     <span style={{ background: "#1A1A1A", color: "#FFF", padding: "4px 10px", borderRadius: 20, fontSize: 12, fontWeight: 700, textTransform: "uppercase" }}>Current Plan</span>
                     <h4 style={{ fontSize: 20, margin: "12px 0 4px" }}>JurisAI Starter</h4>
                     <p style={{ margin: 0, fontSize: 14, color: "#64748B" }}>Basic AI functionality with limited query quota.</p>
                   </div>
-                  <div style={{ textAlign: "right" }}>
+                  <div className="billing-price" style={{ textAlign: "right" }}>
                     <h3 style={{ fontSize: 32, margin: 0 }}>Free</h3>
                     <p style={{ margin: 0, fontSize: 13, color: "#64748B" }}>Forever</p>
                   </div>
@@ -142,13 +142,13 @@ export default function Settings() {
                 <p style={{ margin: 0, fontSize: 13, color: "#64748B", textAlign: "right" }}>75 / 100 Monthly AI Queries Used</p>
               </div>
 
-              <div style={{ border: "1px solid rgba(212,175,55,0.3)", borderRadius: 12, padding: 24, background: "rgba(212,175,55,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div className="billing-upgrade" style={{ border: "1px solid rgba(212,175,55,0.3)", borderRadius: 12, padding: 24, background: "rgba(212,175,55,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
                   <h4 style={{ margin: "0 0 8px", fontSize: 16, color: "#AA8529" }}>JurisAI Professional</h4>
                   <p style={{ margin: 0, fontSize: 14, color: "#64748B", maxWidth: 300 }}>Unlock unlimited AI queries, custom case drafting, and premium API access.</p>
                 </div>
                 <button style={{ background: "#D4AF37", color: "#FFF", border: "none", padding: "12px 24px", borderRadius: 8, fontWeight: 600, cursor: "not-allowed", opacity: 0.8 }}>
-                  Upgrade (Coming Soon)
+                  Upgrade
                 </button>
               </div>
             </div>
