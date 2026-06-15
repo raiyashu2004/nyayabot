@@ -3293,6 +3293,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   }
   .settings-sidebar button {
     white-space: nowrap;
+    flex-shrink: 0;
   }
   .settings-content {
     padding: 20px !important;

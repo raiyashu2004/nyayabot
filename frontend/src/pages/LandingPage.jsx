@@ -27,9 +27,9 @@ const TESTIMONIALS = [
 ];
 
 const STATS = [
-  { value: "5,000+", label: "Legal Professionals" },
-  { value: "50,000+", label: "Cases Analyzed" },
-  { value: "99.2%", label: "Citation Accuracy" },
+  { value: "100+", label: "Legal Professionals" },
+  { value: "10k+", label: "Judgments Indexed" },
+  { value: "93.4%", label: "Citation Accuracy" },
   { value: "25", label: "High Courts Covered" },
 ];
 
@@ -73,9 +73,9 @@ export default function LandingPage({ onNavigate }) {
           <div className="landing-hero-orb orb-3" />
         </div>
         <div className="landing-hero-content">
-          <div className="landing-hero-badge">
-            <Sparkles size={14} />
-            Powered by Advanced AI · Trusted by 5,000+ Advocates
+          <div className="landing-badge">
+            <span className="landing-badge-icon">✨</span>
+            Powered by Advanced AI · Trusted by 100+ Advocates
           </div>
           <h1 className="landing-hero-title">
             India's Most Trusted
@@ -105,7 +105,7 @@ export default function LandingPage({ onNavigate }) {
               <div className="landing-hero-stars">
                 {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />)}
               </div>
-              <p className="landing-hero-trust-text">Trusted by 5,000+ advocates across India</p>
+              <p className="landing-hero-trust-text">Trusted by 100+ advocates across India</p>
             </div>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function LandingPage({ onNavigate }) {
             <div className="landing-hero-orb orb-2" />
           </div>
           <h2>Start Your Legal Research Today</h2>
-          <p>Join 5,000+ legal professionals who trust JurisAI for accurate, cited legal research.</p>
+          <p>Join 100+ legal professionals who trust JurisAI for accurate, cited legal research.</p>
           <button className="landing-btn-primary large white" onClick={() => onNavigate("register")}>
             Create Free Account
             <ArrowRight size={18} />
