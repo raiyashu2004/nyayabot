@@ -22,6 +22,7 @@ class ChatRequest(BaseModel):
 class GenericChatRequest(BaseModel):
     system_prompt: str
     user_message: str
+    history: Optional[list[dict]] = None
 
 class HistoryMessage(BaseModel):
     role:    str
@@ -53,10 +54,16 @@ async def generic_stream(req: GenericChatRequest):
         streaming=True
     )
     
-    messages = [
-        SystemMessage(content=req.system_prompt),
-        HumanMessage(content=req.user_message)
-    ]
+    from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+    
+    messages = [SystemMessage(content=req.system_prompt)]
+    if req.history:
+        for msg in req.history:
+            if msg.get("role") == "user":
+                messages.append(HumanMessage(content=msg.get("text", "")))
+            elif msg.get("role") == "ai":
+                messages.append(AIMessage(content=msg.get("text", "")))
+    messages.append(HumanMessage(content=req.user_message))
     
     async def generate():
         async for chunk in llm.astream(messages):
@@ -83,10 +90,16 @@ async def generic_call(req: GenericChatRequest):
             temperature=0.1
         )
         
-        messages = [
-            SystemMessage(content=req.system_prompt),
-            HumanMessage(content=req.user_message)
-        ]
+        from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+        
+        messages = [SystemMessage(content=req.system_prompt)]
+        if req.history:
+            for msg in req.history:
+                if msg.get("role") == "user":
+                    messages.append(HumanMessage(content=msg.get("text", "")))
+                elif msg.get("role") == "ai":
+                    messages.append(AIMessage(content=msg.get("text", "")))
+        messages.append(HumanMessage(content=req.user_message))
         
         response = await llm.ainvoke(messages)
         return {"text": response.content}

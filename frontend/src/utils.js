@@ -128,12 +128,12 @@ export function extractJSON(raw) {
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:10000";
 
-export async function callGemini(systemPrompt, userMessage, onChunk) {
+export async function callGemini(systemPrompt, userMessage, onChunk, history = []) {
   if (onChunk) {
     const res = await fetch(`${BACKEND_URL}/api/chat/generic-stream`, {
       method: "POST", 
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ system_prompt: systemPrompt, user_message: userMessage }),
+      body: JSON.stringify({ system_prompt: systemPrompt, user_message: userMessage, history: history }),
     });
     
     if (!res.ok) throw new Error(`Backend API error ${res.status}`);
@@ -149,20 +149,20 @@ export async function callGemini(systemPrompt, userMessage, onChunk) {
       const chunkStr = dec.decode(value);
       for (const line of chunkStr.split("\n")) {
         if (line.startsWith("data: ")) {
-          // Decode the explicitly escaped newlines from the backend
-          const textChunk = line.substring(6).replace(/\\n/g, "\n");
-          full += textChunk;
-          onChunk(full);
+          const txt = line.slice(6);
+          if (txt.trim() === "[DONE]") break;
+          full += txt;
+          onChunk(full.replace(/\\n/g, "\n"));
         }
       }
     }
-    return full;
+    return full.replace(/\\n/g, "\n");
   } else {
     // Non-streaming fallback
     const res = await fetch(`${BACKEND_URL}/api/chat/generic`, {
       method: "POST", 
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ system_prompt: systemPrompt, user_message: userMessage }),
+      body: JSON.stringify({ system_prompt: systemPrompt, user_message: userMessage, history: history }),
     });
     if (!res.ok) throw new Error(`Backend API error ${res.status}`);
     const data = await res.json();
