@@ -155,7 +155,7 @@ export default function ChatPage() {
           {msgs.map((m, i) => (
             <div key={i} className={`chat-msg ${m.role === "user" ? "user" : ""}`}>
               <div className={`chat-msg-avatar ${m.role === "ai" ? "bot" : "user-av"}`}>
-              {m.role === "ai" ? <img src="/logo.jpg" alt="AI" style={{ width: 16, height: 16, borderRadius: 4 }} /> : "A"}
+              {m.role === "ai" ? <img src="/logo.jpg" alt="AI" style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }} /> : "A"}
             </div>
               <div style={{ maxWidth: "82%" }}>
                 <div className="chat-bubble">

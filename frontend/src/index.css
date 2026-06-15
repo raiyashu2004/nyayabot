@@ -924,9 +924,9 @@ body {
 }
 
 .chat-msg-avatar.bot {
-  background: linear-gradient(135deg, #D4AF37, #AA8529);
+  background: transparent;
   color: #FFFFFF;
-  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+  box-shadow: none;
 }
 
 .chat-msg-avatar.user-av {
@@ -1573,7 +1573,7 @@ body {
 .landing-nav-logo {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #D4AF37, #AA8529);
+  background: transparent;
   border-radius: 9px;
   display: flex;
   align-items: center;
