@@ -68,30 +68,26 @@ async def generic_stream(req: GenericChatRequest):
 
 @router.post("/generic")
 async def generic_call(req: GenericChatRequest):
-    """
-    Non-streaming LangChain proxy for the frontend. 
-    Useful for document analysis and research feeds which expect bulk JSON.
-    """
-    from langchain_google_genai import ChatGoogleGenerativeAI
-    from langchain_core.messages import SystemMessage, HumanMessage
-    import os
-    
-    api_key = os.getenv("GEMINI_API_KEY")
-    if not api_key:
-        raise HTTPException(500, "GEMINI_API_KEY is missing on the server.")
-        
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
-        google_api_key=api_key,
-        temperature=0.1
-    )
-    
-    messages = [
-        SystemMessage(content=req.system_prompt),
-        HumanMessage(content=req.user_message)
-    ]
-    
     try:
+        from langchain_google_genai import ChatGoogleGenerativeAI
+        from langchain_core.messages import SystemMessage, HumanMessage
+        import os
+        
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            return {"text": "GEMINI_API_KEY is missing on the server."}
+            
+        llm = ChatGoogleGenerativeAI(
+            model="gemini-1.5-flash",
+            google_api_key=api_key,
+            temperature=0.1
+        )
+        
+        messages = [
+            SystemMessage(content=req.system_prompt),
+            HumanMessage(content=req.user_message)
+        ]
+        
         response = await llm.ainvoke(messages)
         return {"text": response.content}
     except Exception as e:
