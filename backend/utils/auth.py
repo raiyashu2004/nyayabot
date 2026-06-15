@@ -12,7 +12,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    jwt_secret: str = "nyayabot-secret-key-123"
+    jwt_secret: str = "juris-secret-key-123"
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 60 * 24 * 7
 

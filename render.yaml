@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: nyayabot-api
+    name: juris-api
     env: python
     plan: free
     buildCommand: "cd backend && pip install -r requirements.txt"

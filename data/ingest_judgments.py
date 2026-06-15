@@ -25,7 +25,7 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent.parent / "backend"))
 from services.embeddings import EmbeddingService
 
-DATABASE_URL        = os.getenv("DATABASE_URL", "postgresql://nyaya:nyaya_secret@localhost:5432/nyayabot")
+DATABASE_URL        = os.getenv("DATABASE_URL", "postgresql://juris:juris_secret@localhost:5432/juris")
 INDIANKANOON_TOKEN  = os.getenv("INDIANKANOON_API_KEY", "")
 IK_BASE             = "https://api.indiankanoon.org"
 CHUNK_SIZE          = 450

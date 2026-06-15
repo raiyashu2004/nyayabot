@@ -50,7 +50,7 @@ export default function MyDocuments() {
       const filePath = `${user.id}/${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
-        .from('nyayabot_docs')
+        .from('juris_docs')
         .upload(filePath, file);
 
       if (uploadError) throw uploadError;
@@ -102,7 +102,7 @@ export default function MyDocuments() {
 
       // Delete from Storage
       const { error: storageError } = await supabase.storage
-        .from('nyayabot_docs')
+        .from('juris_docs')
         .remove([storagePath]);
         
       if (storageError) throw new Error("Cloud Storage Deletion Error: " + storageError.message);
@@ -117,7 +117,7 @@ export default function MyDocuments() {
     try {
       // Use createSignedUrl instead of download() to prevent browser Blob corruption
       const { data, error } = await supabase.storage
-        .from('nyayabot_docs')
+        .from('juris_docs')
         .createSignedUrl(storagePath, 60); // URL valid for 60 seconds
         
       if (error) throw new Error("Failed to generate download link: " + error.message);

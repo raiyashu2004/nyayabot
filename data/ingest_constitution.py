@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "backend"))
 from services.embeddings import EmbeddingService
 
 # ── Config ────────────────────────────────────────────────
-DATABASE_URL = "postgresql://nyaya:nyaya_secret@127.0.0.1:5432/nyayabot"
+DATABASE_URL = "postgresql://juris:juris_secret@127.0.0.1:5432/juris"
 CHUNK_SIZE   = 500    # tokens (approx characters / 4)
 CHUNK_OVERLAP = 80
 

@@ -11,7 +11,7 @@ async def get_db_pool() -> asyncpg.Pool:
     global _pool
     if _pool is None:
         _pool = await asyncpg.create_pool(
-            dsn=os.getenv("DATABASE_URL", "postgresql://nyaya:nyaya_secret@localhost:5432/nyayabot"),
+            dsn=os.getenv("DATABASE_URL", "postgresql://juris:juris_secret@localhost:5432/juris"),
             min_size=2,
             max_size=10,
         )

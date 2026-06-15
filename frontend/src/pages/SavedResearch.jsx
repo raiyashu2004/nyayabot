@@ -13,19 +13,19 @@ export default function SavedResearch() {
   const [activeTab, setActiveTab] = useState("All"); // All | Case Law | AI Chat | Draft
 
   useEffect(() => {
-    const saved = localStorage.getItem("nyayabot_saved");
+    const saved = localStorage.getItem("juris_saved");
     if (saved) {
       setSavedItems(JSON.parse(saved));
     } else {
       setSavedItems(INITIAL_SAVED);
-      localStorage.setItem("nyayabot_saved", JSON.stringify(INITIAL_SAVED));
+      localStorage.setItem("juris_saved", JSON.stringify(INITIAL_SAVED));
     }
   }, []);
 
   const handleDelete = (id) => {
     const updated = savedItems.filter(i => i.id !== id);
     setSavedItems(updated);
-    localStorage.setItem("nyayabot_saved", JSON.stringify(updated));
+    localStorage.setItem("juris_saved", JSON.stringify(updated));
   };
 
   const filteredItems = activeTab === "All" ? savedItems : savedItems.filter(i => i.type === activeTab);

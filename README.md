@@ -36,8 +36,8 @@ Unlike generic AI chat tools, JurisAI strictly operates within the boundaries of
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/raiyashu2004/nyayabot.git
-cd nyayabot
+git clone https://github.com/raiyashu2004/Juris.git
+cd Juris
 ```
 
 ### 2. Setup the Backend (FastAPI)

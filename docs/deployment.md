@@ -39,8 +39,8 @@ apt-get update && apt-get install -y postgresql redis-server python3.11 nodejs n
 apt-get install postgresql-16-pgvector
 
 # Clone and set up
-git clone https://github.com/yourname/nyayabot
-cd nyayabot/backend && pip install -r requirements.txt
+git clone https://github.com/yourname/Juris
+cd Juris/backend && pip install -r requirements.txt
 cd ../frontend && npm install && npm run build
 
 # Configure nginx to serve frontend + proxy /api to FastAPI
