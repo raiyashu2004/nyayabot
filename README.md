@@ -85,4 +85,4 @@ This application utilizes a decoupled architecture to ensure smooth AI streaming
 JurisAI is an AI assistant intended for research and drafting assistance. It is **not a substitute for qualified legal counsel**. Always verify citations and legal advice with an advocate enrolled with the Bar Council of India before submitting documents to a court of law.
 
 ---
-*Built with ❤️ for the Indian Legal Community.*
+*Empowering the Indian Legal Community with intelligent AI.*
