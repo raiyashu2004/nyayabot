@@ -2,6 +2,9 @@
   <img src="./frontend/public/logo.jpg" width="80" height="80" alt="JurisAI Logo" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
   <h1>JurisAI — Indian Legal AI Assistant</h1>
   <p>An AI-powered legal research and drafting platform built for Indian advocates and law students. Powered by Google Gemini and FastAPI.</p>
+  <p>
+    <a href="https://botjuris-six.vercel.app">🚀 Live Demo</a>
+  </p>
 
   <a href="#features">Features</a> •
   <a href="#tech-stack">Tech Stack</a> •
