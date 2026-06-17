@@ -10,3 +10,4 @@ Activity entry #9: docs: expand API request examples in documentation - 2026-06-
 Activity entry #10: style: fix indentation in package.json files - 2026-06-17 10:39:34
 Activity entry #11: chore: update list of contributors in docs - 2026-06-17 10:39:34
 Activity entry #12: refactor: group common utility helper functions - 2026-06-17 10:39:35
+Activity entry #13: docs: document environment variable configuration - 2026-06-17 10:39:35
