@@ -12,3 +12,4 @@ Activity entry #11: chore: update list of contributors in docs - 2026-06-17 10:3
 Activity entry #12: refactor: group common utility helper functions - 2026-06-17 10:39:35
 Activity entry #13: docs: document environment variable configuration - 2026-06-17 10:39:35
 Activity entry #14: style: correct typo in comments for database utility - 2026-06-17 10:39:35
+Activity entry #15: chore: standardise linting configurations - 2026-06-17 10:39:35
