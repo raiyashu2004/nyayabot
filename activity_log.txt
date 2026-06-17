@@ -13,3 +13,4 @@ Activity entry #12: refactor: group common utility helper functions - 2026-06-17
 Activity entry #13: docs: document environment variable configuration - 2026-06-17 10:39:35
 Activity entry #14: style: correct typo in comments for database utility - 2026-06-17 10:39:35
 Activity entry #15: chore: standardise linting configurations - 2026-06-17 10:39:35
+Activity entry #16: refactor: enhance error logs readability in backend - 2026-06-17 10:39:35
