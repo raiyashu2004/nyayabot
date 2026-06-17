@@ -29,3 +29,4 @@ Activity entry #28: refactor: extract constant configurations to single file - 2
 Activity entry #29: docs: add step-by-step contribution flow - 2026-06-17 10:39:38
 Activity entry #30: style: standardise code spacing in helper functions - 2026-06-17 10:39:38
 Activity entry #31: chore: check package lock integrity - 2026-06-17 10:39:38
+Activity entry #32: refactor: clarify stream handlers inside connection modules - 2026-06-17 10:39:39
