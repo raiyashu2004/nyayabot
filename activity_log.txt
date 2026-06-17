@@ -5,3 +5,4 @@ Activity entry #4: refactor: clean up unused variables in configuration - 2026-0
 Activity entry #5: style: align styling in navigation bar config - 2026-06-17 10:39:33
 Activity entry #6: docs: add troubleshooting steps for local setup - 2026-06-17 10:39:34
 Activity entry #7: chore: optimize git ignore rules for node modules - 2026-06-17 10:39:34
+Activity entry #8: refactor: simplify conditional statements in core router - 2026-06-17 10:39:34
