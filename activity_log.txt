@@ -2,3 +2,4 @@ Activity entry #1: docs: update installation instructions in README - 2026-06-17
 Activity entry #2: style: format markdown tables in docs - 2026-06-17 10:39:33
 Activity entry #3: chore: remove deprecated comments from helper scripts - 2026-06-17 10:39:33
 Activity entry #4: refactor: clean up unused variables in configuration - 2026-06-17 10:39:33
+Activity entry #5: style: align styling in navigation bar config - 2026-06-17 10:39:33
